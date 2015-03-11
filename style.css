@@ -1,0 +1,41 @@
+.tabel{ border-collapse: collapse;
+}
+.tabel td {
+padding:5px; }
+
+.tabel1{ border-collapse: collapse;}
+.tabel2{ border-collapse: collapse;}
+body {background-color: #FFFFE3;
+margin-left:30px;
+margin-top:30px;}
+.well {background-color:#FFFFBA;
+width:550px;
+}
+.well col-md-4{width:60%;}
+
+.table-bordered{padding:20px;
+border-radius:2px;}
+body > table > tbody > tr > th{padding:10px; }
+body > table > tbody > tr > td{padding:10px; }
+body > table > tbody > tr:nth-child(1) > th{background-color:#FFFFBA;}
+body > form.well.col-md-8{width:89.2%;}
+body > form.well.col-md-8 > select:nth-child(2){padding:3.2px;}
+body > form.well.col-md-8 > select:nth-child(3){padding:3.2px;}
+body > table > tbody > tr > th:nth-child(1){width:150px;}
+
+
+
+body > table > tbody > tr > th:nth-child(2){width:163px;}
+body > form.well.col-md-8{width:1109px;}
+body > table > tbody > tr:nth-child(1) > th:nth-child(1){width:100px;}
+body > table > tbody > tr:nth-child(2) > td:nth-child(2){width:90px;}
+body > table > tbody > tr:nth-child(2) > td:nth-child(4){width:150px;}
+body > table > tbody > tr:nth-child(1) > th:nth-child(3){width:150px;}
+
+body > form.well.col-md-8 > table > tbody > tr > td:nth-child(2) > input[type="text"]{margin-left:5px;
+margin-right:5px;}
+body > form.well.col-md-8 > table > tbody > tr > td:nth-child(4) > select{margin-left:5px;
+margin-right:5px;}
+body > form.well.col-md-8 > table > tbody > tr > td:nth-child(6) > select{margin-left:5px;
+margin-right:10px;}
+body > table > tbody > tr:nth-child(1) > th.departament{width:220px;}
