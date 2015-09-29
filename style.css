@@ -18,7 +18,7 @@ border-radius:2px;}
 body > table > tbody > tr > th{padding:10px; }
 body > table > tbody > tr > td{padding:10px; }
 body > table > tbody > tr:nth-child(1) > th{background-color:#FFFFBA;}
-body > form.well.col-md-8{width:89.2%;}
+body > form.well.col-md-8{width:200%;}
 body > form.well.col-md-8 > select:nth-child(2){padding:3.2px;}
 body > form.well.col-md-8 > select:nth-child(3){padding:3.2px;}
 body > table > tbody > tr > th:nth-child(1){width:150px;}
@@ -39,3 +39,20 @@ margin-right:5px;}
 body > form.well.col-md-8 > table > tbody > tr > td:nth-child(6) > select{margin-left:5px;
 margin-right:10px;}
 body > table > tbody > tr:nth-child(1) > th.departament{width:220px;}
+body > form > table > tbody > tr > td > input[type="text"]{width:110px;margin-bottom:10px;}
+body > form.well.col-md-8 > table{width:850px;}
+body > form.well.col-md-8{width:1327px;}
+body > form.well.col-md-8 > table > tbody > tr > td:nth-child(2) > input[type="text"]{margin-top:8px;width:200px;}
+body > form > table > tbody > tr:nth-child(2) > td:nth-child(2) > input[type="text"]{margin-top:100px;}
+body > form > table > tbody > tr:nth-child(2) > td:nth-child(2){margin-top:-100px;}
+body > form > table > tbody > tr:nth-child(1) > th:nth-child(2){margin-top:-100px;}
+body > form > table > tbody > tr:nth-child(2) > td > input[type="text"]{margin-left:2px;}
+body > form > table > tbody > tr:nth-child(1) > th:nth-child(2){margin-top:10px;}
+#angajat{margin-top:5px;}
+body > form > table > tbody > tr:nth-child(2) > td > input[type="text"]{margin-top:5px;}
+body > form > table > tbody > tr:nth-child(1){margin-left:-10px;}
+body > form > table > tbody > tr:nth-child(1) > th{padding-left: 5px;}
+.search{width:200px;}
+body > form:nth-child(1) > input:nth-child(2){margin-left:1px;}
+#container > form:nth-child(1) > input:nth-child(2){margin-left:1px;}
+body > table > tbody > tr:nth-child(1) > th:nth-child(10){margin-left:10px;}

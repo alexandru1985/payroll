@@ -15,7 +15,8 @@
      <div id="container">
     <form><input class="btn btn-primary" type="button" value="Vezi raport" OnClick="location.href='tabel.php';"><input class="btn btn-primary" type="button" value="Cauta angajat" OnClick="location.href='verificare.php';"></form>    
      <form name = "form"action="index.php" method="POST" class ="well col-md-4" onsubmit="return validateForm()">  
-     <table class="tabel">   
+     <table class="tabel"> 
+         <input type="hidden" name="id"> 
          <tr>
               <td  width="135">Nume angajat</td>
               <td width="250"><input class="span3" type="text" name="nume_angajat" ></td>
@@ -78,6 +79,7 @@
     </body>
 </html>
 <?php
+$id =$_POST['id'];
 $nume_angajat =$_POST['nume_angajat'];
 $oras = $_POST['oras'];
 $functie = $_POST['functie'];

@@ -193,7 +193,7 @@ while($row= mysql_fetch_array($result))
     
 </html>
      
-
+<!--SELECT date_principale.Oras, date_principale.Angajat, date_principale.Functie, beneficii.Comision FROM date_principale LEFT JOIN beneficii ON data_principale.Id = beneficii.Id-->
 	
 
 
