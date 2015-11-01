@@ -3,24 +3,48 @@
         <title></title>
         <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="style.css" type="text/css">
-        <script type="text/javascript"src="js/bootstrap.js"></script> 
 
- <script type="text/javascript">
-            function edt_id(id)
-            {
-                if (confirm('Sure to edit ?'))
-                {
-                    window.location.href = 'edit_data.php?edit_id=' + id;
-                }
-            }
-            function delete_id(id)
-            {
-                if (confirm('Sure to Delete ?'))
-                {
-                    window.location.href = 'verificare.php?delete_id=' + id;
-                }
-            }
+
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+        <!-- include the jquery library -->
+
+
+        <!-- include the jquery ui library -->
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript"src="dialog_confirm.js"></script> 
+        <script type="text/javascript"src="js/bootstrap.js"></script>
+
+        <script type="text/javascript">
+            //            function edt_id(id)
+            //            {
+            //                if (confirm('Sure to edit ?'))
+            //                {
+            //                    window.location.href = 'edit_data.php?edit_id=' + id;
+            //                }
+            //            }
+            //            function delete_id(id)
+            //            {
+            //                if (confirm('Sure to Delete ?'))
+            //                {
+            //                    window.location.href = 'verificare.php?delete_id=' + id;
+            //                }
+            //            }
+
         </script>
+<!--        <style>
+            body {
+                font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+                font-size: .8em;;
+            }
+
+            /* dialog div must be hidden */
+            #basicModal{
+                display:none;
+            }
+        </style>-->
 
     </head>
     <body>
@@ -57,6 +81,7 @@
                 </tr>
             </table>           
         </form>
+
     </body>
 </html>
 
@@ -66,20 +91,21 @@ $username = "root";
 $password = "";
 $dbname = "payroll";
 
-// Create connection
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 include 'connect.php';
-// delete condition
+
 if (isset($_GET['delete_id'])) {
-    $sql_query = "DELETE FROM date_principale WHERE date_principale.Id=" . $_GET['delete_id'];
-   if (mysql_query($sql_query)===false)die(mysql_error());
-    header("Location: verificare.php");
+
+    $sql = mysqli_query($conn, "DELETE FROM date_principale WHERE date_principale.Id=" . $_GET['delete_id']);
+    if ($sql == false) {
+        die(test);
+    }
 }
-// delete condition
 
 
 $id = $_POST['id'];
@@ -100,38 +126,37 @@ $functie = $_POST['functie'];
         <th>Total salariu</th>
         <th>Modificare date</th>
         <th>Stergere date</th></tr>
-<?php
+    <?php
     $result = mysqli_query($conn, "SELECT date_principale.*,date_personale.Varsta,date_personale.Vechime,
 totaluri.Suma_comision, beneficii.Prime, totaluri.Total_salariu
 FROM date_principale 
 LEFT JOIN beneficii ON date_principale.Id = beneficii.Id 
 LEFT JOIN totaluri ON date_principale.Id = totaluri.Id  
 LEFT JOIN date_personale ON date_principale.Id = date_personale.Id 
-WHERE  date_principale.Angajat LIKE '%$nume_angajat%' AND date_principale.Oras LIKE '%$oras%' AND date_principale.Functie LIKE '%$functie%' LIMIT 8   ")
- or die(mysql_error());
+WHERE  date_principale.Angajat LIKE '%$nume_angajat%' AND date_principale.Oras LIKE '%$oras%' AND date_principale.Functie LIKE '%$functie%' LIMIT 8   ") or die(mysql_error());
 
     while ($row = mysqli_fetch_array($result)) {
         ?>
-    <tr>
-        <td><?php echo $row['Oras']; ?></td>
-        <td><?php echo $row['Angajat']; ?> </td>
-        <td><?php echo $row['Functie']; ?> </td>
-        <td><?php echo $row['Varsta']; ?>&nbsp;ani </td>    
-        <td><?php echo $row['Vechime']; ?>&nbsp;ani </td>    
-        <td><?php echo $row['Salariu_baza']; ?> </td> 
-        <td><?php echo $row['Suma_comision']; ?> </td>
-        <td><?php echo $row['Prime']; ?> </td>  
-        <td><?php echo $row['Total_salariu']; ?>&nbsp;lei </td>  
+        <tr id='sterge'>
+            <td><?php echo $row['Oras']; ?></td>
+            <td><?php echo $row['Angajat']; ?> </td>
+            <td><?php echo $row['Functie']; ?> </td>
+            <td><?php echo $row['Varsta']; ?>&nbsp;ani </td>    
+            <td><?php echo $row['Vechime']; ?>&nbsp;ani </td>    
+            <td><?php echo $row['Salariu_baza']; ?> </td> 
+            <td><?php echo $row['Suma_comision']; ?> </td>
+            <td><?php echo $row['Prime']; ?> </td>  
+            <td><?php echo $row['Total_salariu']; ?>&nbsp;lei </td>  
         <input type='hidden' name='id'> 
-        <td><a href="javascript:edt_id('<?php echo $row[0]; ?>')"><input type='submit' name='edit' value='Modifica' id='modifica' class='btn btn-primary' ></a> </td> 
-        <td><a href="javascript:delete_id('<?php echo $row[0]; ?>')"><input type='submit' name='sterge' value='Sterge' id='sterge' class='btn btn-primary' ></a> </td> 
+        <td><a href="edit_data.php?edit_id=<?php echo $row[0]; ?>"><input type='submit' name='edit' value='Modifica' id='modifica' class='btn btn-primary' ></a> </td> 
+        <td><a  class='sterge' href="javascript:delete_id(<?php echo $row[0]; ?>)"><input type='submit' name='sterge' value='Sterge'class='btn btn-primary' ></a> </td> 
 
     </tr>
     <?php
 }
 mysqli_close($conn);
 ?>
-    
+
 </table>
 
 

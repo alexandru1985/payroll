@@ -10,6 +10,7 @@
           <title></title>
             <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
           <link rel="stylesheet" href="style.css" type="text/css">
+            <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
           <script type="text/javascript"src="js/bootstrap.js"> </script> 
       </head>
 <form><input class="btn btn-primary"  type="button" value="Adauga angajat" OnClick="location.href='index.php';"><input class="btn btn-primary"  type="button" value="Cauta angajat" OnClick="location.href='verificare.php';"></form>    
